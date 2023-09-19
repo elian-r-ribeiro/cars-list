@@ -25,4 +25,12 @@ export class CarService {
   register(car : Car){
     this.listOfCars.push(car);
   }
+
+  saveEdit(index : number, newCar : Car){
+    this.listOfCars[index] = newCar;
+  }
+
+  deleteCar(index : number){
+    this.listOfCars.splice(index);
+  }
 }

@@ -6,10 +6,17 @@
 
 <ion-content [fullscreen]="true">
   <ion-item>
-    <ion-input label="Brand" type="string" placeholder="Insert the car brand" [(ngModel)]="brand"></ion-input>
+    <ion-toggle (ionChange)="enableEdit()">Enable edit</ion-toggle>
   </ion-item>
 
   <ion-item>
-    <ion-input label="Model" type="string" placeholder="Insira o email" [(ngModel)]="model"></ion-input>
+    <ion-input label="Brand" type="string" placeholder="Insert the car brand" [(ngModel)]="brand" disabled="{{edit}}"></ion-input>
   </ion-item>
+
+  <ion-item>
+    <ion-input label="Model" type="string" placeholder="Insira o email" [(ngModel)]="model" disabled="{{edit}}"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="saveEdit()" disabled="{{edit}}">Save</ion-button>
+  <ion-button expand="full" color="danger" (click)="deleteConfirm()" disabled="{{edit}}">Delete</ion-button>
 </ion-content>
